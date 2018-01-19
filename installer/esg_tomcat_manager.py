@@ -154,8 +154,8 @@ def restart_tomcat():
     print "Sleeping for 7 seconds to allow shutdown"
     sleep(7)
     start_tomcat()
-    print "Sleeping for 30 seconds to allow Tomcat restart"
-    sleep()
+    print "Sleeping for 25 seconds to allow Tomcat restart"
+    sleep(25)
 
 def check_tomcat_status():
     #TODO: use process management module for check
