@@ -16,7 +16,7 @@
 # Required-Stop: $local_fs $remote_fs $network
 # Should-Start: distcache
 # Short-Description: start and stop Apache HTTP Server
-# Description: The Apache HTTP Server is an extensible server 
+# Description: The Apache HTTP Server is an extensible server
 #  implementing the current HTTP standards.
 ### END INIT INFO
 
@@ -47,8 +47,8 @@ lockfile=${LOCKFILE-/var/lock/subsys/httpd}
 RETVAL=0
 STOP_TIMEOUT=${STOP_TIMEOUT-10}
 OPTIONS='-f /etc/httpd/conf/esgf-httpd.conf'
-export LD_LIBRARY_PATH=/opt/esgf/python/lib:/opt/esgf/python/lib/python2.7:/opt/esgf/python/lib/python2.7/site-packages/mod_wsgi/server
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/uvcdat/2.2.0/Externals/lib
+export LD_LIBRARY_PATH=/usr/local/conda/envs/esgf-pub/lib:/usr/local/conda/envs/esgf-pub/lib/python2.7:/usr/local/conda/envs/esgf-pub/lib/python2.7/site-packages/mod_wsgi/server
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/uvcdat/2.2.0/Externals/lib
 
 # The semantics of these two functions differ from the way apachectl does
 # things -- attempting to start while running is a failure, and shutdown
