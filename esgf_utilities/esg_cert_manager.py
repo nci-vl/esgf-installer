@@ -9,6 +9,7 @@ import logging
 import socket
 import tarfile
 import datetime
+import ConfigParser
 import errno
 import requests
 import yaml
