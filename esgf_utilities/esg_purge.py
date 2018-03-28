@@ -186,9 +186,18 @@ def purge_apache():
         if error.errno == errno.ENOENT:
             pass
 
-#TODO: define purge_conda()
+    try:
+        shutil.rmtree("/etc/httpd/logs")
+    except OSError, error:
+        if error.errno == errno.ENOENT:
+            pass
+
 def purge_conda():
-    pass
+    try:
+        shutil.rmtree("/usr/local/conda")
+    except OSError, error:
+        if error.errno == errno.ENOENT:
+            pass
 
 def purge_solr():
 
@@ -229,6 +238,7 @@ def main():
     purge_cdat()
     purge_apache()
     purge_cog()
+    purge_conda()
 
 if __name__ == '__main__':
     main()
