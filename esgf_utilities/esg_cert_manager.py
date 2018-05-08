@@ -1179,6 +1179,5 @@ def main():
     install_tomcat_keypair("/etc/certs/hostkey.pem", "/etc/certs/hostcert.pem")
     check_for_commercial_ca()
 
-
 if __name__ == '__main__':
     main()
