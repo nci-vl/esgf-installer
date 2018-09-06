@@ -8,7 +8,7 @@ jobs:
       steps:
          - checkout
          - run: "pwd"
-         - run: "ls -l"
+         - run: "ls -al"
 
 workflows:
    jobs:
