@@ -4,8 +4,7 @@ aliases:
    - &create_esgf_pub_env
      name: create_esgf_pub_env
      command: |
-        pwd
-        ls -l        
+        ./esg_bootstrap.sh
 
 jobs:
    centos_build:
