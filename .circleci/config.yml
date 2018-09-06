@@ -11,5 +11,7 @@ jobs:
          - run: "ls -l"
 
 workflows:
-   jobs:
-      - centos_build
+   version: 2
+   esgf_installer:
+      jobs:
+         - centos_build
