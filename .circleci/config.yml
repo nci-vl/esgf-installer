@@ -3,11 +3,9 @@ version: 2
 jobs:
    centos_build:
       docker:
-         # - image: hill119/esgf_centos6
-         - image: muryanto1/mycentos:latest
+         - image: hill119/esgf_centos6
       working_directory: workspace
       steps:
-         - checkout
          - run: "pwd"
          - run: "ls -l"
 
