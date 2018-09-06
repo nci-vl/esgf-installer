@@ -7,9 +7,8 @@ jobs:
          - image: muryanto1/mycentos:latest
       working_directory: workspace
       steps:
-         - run: "git --version"
-         - run: "pwd"
-         - run: "ls -l"
+         - run: "git clone https://github.com/ESGF/esgf-installer.git"
+
 
 workflows:
    version: 2
