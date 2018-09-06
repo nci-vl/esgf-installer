@@ -1,5 +1,12 @@
 version: 2
 
+aliases:
+   - &create_esgf_pub_env
+     name: create_esgf_pub_env
+     command: |
+        pwd
+        ls -l        
+
 jobs:
    centos_build:
       docker:
@@ -7,10 +14,8 @@ jobs:
          - image: muryanto1/mycentos:latest
       working_directory: workspace
       steps:
-         - run: git clone https://github.com/ESGF/esgf-installer.git
-         - run: cd esgf-installer; git checkout python_devel
-         - run: wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda2.sh
-         - run: bash ./miniconda2.sh -b -p miniconda2
+         - checkout
+         - run: *create_esgf_pub_env        
 
 workflows:
    version: 2
