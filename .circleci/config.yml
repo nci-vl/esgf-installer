@@ -6,7 +6,9 @@ aliases:
      command: |
         git checkout python_devel
         git pull
-        sudo /home/docker/workspace/esg_bootstrap.sh
+        cd $WORKDIR
+        sudo chmod 777 esg_bootstrap.sh
+        sudo esg_bootstrap.sh
 
 jobs:
    centos_build:
@@ -15,6 +17,8 @@ jobs:
          #- image: muryanto1/mycentos:latest
          - image: muryanto1/centos_for_esgf_installer:latest
       working_directory: /home/docker/workspace
+      environment:
+         WORKDIR: /home/docker/workspace
       steps:
          - checkout
          - run: *create_esgf_pub_env        
