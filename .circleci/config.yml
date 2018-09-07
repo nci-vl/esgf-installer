@@ -4,6 +4,8 @@ aliases:
    - &create_esgf_pub_env
      name: create_esgf_pub_env
      command: |
+        git checkout python_devel
+        git pull
         sudo /home/docker/workspace/esg_bootstrap.sh
 
 jobs:
