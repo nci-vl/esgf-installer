@@ -8,7 +8,7 @@ aliases:
         git pull
         cd $WORKDIR
         sudo chmod 777 esg_bootstrap.sh
-        sudo esg_bootstrap.sh
+        sudo ./esg_bootstrap.sh
 
 jobs:
    centos_build:
