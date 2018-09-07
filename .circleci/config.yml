@@ -4,7 +4,7 @@ aliases:
    - &create_esgf_pub_env
      name: create_esgf_pub_env
      command: |
-        ./esg_bootstrap.sh
+        sudo /home/docker/workspace/esg_bootstrap.sh
 
 jobs:
    centos_build:
