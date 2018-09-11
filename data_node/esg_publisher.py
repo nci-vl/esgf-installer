@@ -64,16 +64,14 @@ def generate_esgsetup_options():
         generate_esg_ini_command += " --db-port %s" % (config["postgress_port"])
 
     logger.info("generate_esg_ini_command in function: %s", generate_esg_ini_command)
-    # print "generate_esg_ini_command in function: %s" % generate_esg_ini_command
     return generate_esg_ini_command
 
 def edit_esg_ini(node_short_name="test_node"):
     '''Edit placeholder values in the generated esg.ini file'''
-    esg_ini_path = os.path.join(config["publisher_home"], config["publisher_config"])
-    print "esg_ini_path:", esg_ini_path
-    esg_functions.call_subprocess('sed -i s/esgcetpass/password/g {esg_ini_path}'.format(esg_ini_path=esg_ini_path))
-    esg_functions.call_subprocess('sed -i s/"host\.sample\.gov"/{esgf_host}/g {esg_ini_path}'.format(esg_ini_path=esg_ini_path, esgf_host=esg_functions.get_esgf_host()))
-    esg_functions.call_subprocess('sed -i s/"LASatYourHost"/LASat{node_short_name}/g {esg_ini_path}'.format(esg_ini_path=esg_ini_path,    node_short_name=node_short_name))
+    esg_ini_path = "/esg/config/esgcet/esg.ini"
+    esg_functions.replace_string_in_file(esg_ini_path, "esgcetpass", esg_functions.get_publisher_password())
+    esg_functions.replace_string_in_file(esg_ini_path, "host.sample.gov", esg_functions.get_esgf_host())
+    esg_functions.replace_string_in_file(esg_ini_path, "LASatYourHost", "LASat{}".format(node_short_name))
 
 def run_esgsetup():
     '''generate esg.ini file using esgsetup script; #Makes call to esgsetup - > Setup the ESG publication configuration'''
@@ -88,7 +86,7 @@ def run_esgsetup():
     except ConfigParser.NoOptionError:
         raise
 
-    generate_esg_ini_command = '''esgsetup --config --minimal-setup --rootid {} --db-admin-password password'''.format(esg_org_name)
+    generate_esg_ini_command = "esgsetup --config --minimal-setup --rootid {}".format(esg_org_name)
 
     try:
         esg_functions.stream_subprocess_output(generate_esg_ini_command)
