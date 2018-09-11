@@ -4,12 +4,16 @@ aliases:
    - &create_esgf_pub_env
      name: create_esgf_pub_env
      command: |
-        #git checkout python_devel
-        #git pull
-        #cd $WORKDIR
         git status
         sudo chmod 777 esg_bootstrap.sh
         sudo ./esg_bootstrap.sh
+
+   - &run_tests
+     name: run_tests
+     command: |
+        source /usr/local/conda/bin/activate esgf-pub
+        python tests/test_esg_apache.py
+        source /usr/local/conda/bin/deactivate
 
 jobs:
    centos_build:
