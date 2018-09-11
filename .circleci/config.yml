@@ -5,8 +5,8 @@ aliases:
      name: create_esgf_pub_env
      command: |
         git status
-        sudo chmod 777 esg_bootstrap.sh
-        sudo ./esg_bootstrap.sh
+        chmod 777 esg_bootstrap.sh
+        ./esg_bootstrap.sh
 
    - &run_tests
      name: run_tests
@@ -16,7 +16,7 @@ aliases:
         source /usr/local/conda/bin/activate esgf-pub
         cd $WORKDIR
         type python
-        sudo python tests/test_esg_apache.py
+        python tests/test_esg_apache.py
         source /usr/local/conda/bin/deactivate
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       docker:
          # - image: hill119/esgf_centos6
          #- image: muryanto1/mycentos:latest
-         - image: muryanto1/centos_for_esgf_installer:latest
+         - image: muryanto1/centos_for_esgf_installer_root:latest
       working_directory: /home/docker/workspace
       environment:
          WORKDIR: "/home/docker/workspace"
