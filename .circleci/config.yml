@@ -7,6 +7,7 @@ aliases:
         #git checkout python_devel
         #git pull
         #cd $WORKDIR
+        git status
         sudo chmod 777 esg_bootstrap.sh
         sudo ./esg_bootstrap.sh
 
