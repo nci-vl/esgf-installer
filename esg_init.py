@@ -121,7 +121,9 @@ def init():
     globus_location = os.path.join(install_prefix, "globus")
     socket_fqdn = socket.getfqdn().split('.', 1)
     print("XXX XXX DEBUG... len: {}".format(len(socket_fqdn)))
-    if len(socket_fqdn) > 0:
+    for i in socket.getfqdn().split('.', 1):
+        print("XXX XXX: {}".format(i))
+    if len(socket_fqdn) > 1:
         mail_smtp_host = "smtp."+socket.getfqdn().split('.', 1)[1]
     mail_admin_address = ""
     publisher_home = ""
