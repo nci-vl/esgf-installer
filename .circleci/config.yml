@@ -14,8 +14,8 @@ aliases:
         id
         pwd
         source /usr/local/conda/bin/activate esgf-pub
-        which python
         cd $WORKDIR
+        type python
         sudo python tests/test_esg_apache.py
         source /usr/local/conda/bin/deactivate
 
