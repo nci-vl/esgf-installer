@@ -12,7 +12,7 @@ aliases:
      name: run_tests
      command: |
         source /usr/local/conda/bin/activate esgf-pub
-        python tests/test_esg_apache.py
+        sudo python tests/test_esg_apache.py
         source /usr/local/conda/bin/deactivate
 
 jobs:
