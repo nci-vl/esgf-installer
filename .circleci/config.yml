@@ -24,7 +24,8 @@ jobs:
       working_directory: /home/docker/workspace
       steps:
          - checkout
-         - run: *create_esgf_pub_env        
+         - run: *create_esgf_pub_env
+         - run: *run_tests
 
 workflows:
    version: 2
