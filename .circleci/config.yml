@@ -16,6 +16,8 @@ aliases:
         ls
         source /usr/local/conda/bin/activate esgf-pub
         type python
+        pwd
+        ls
         # python tests/test_esg_apache.py
         python tests/test_pybash.py
         source /usr/local/conda/bin/deactivate
