@@ -14,7 +14,6 @@ aliases:
         id
         pwd
         source /usr/local/conda/bin/activate esgf-pub
-        cd $WORKDIR
         type python
         # python tests/test_esg_apache.py
         python tests/test_pybash.py
@@ -26,9 +25,7 @@ jobs:
          # - image: hill119/esgf_centos6
          #- image: muryanto1/mycentos:latest
          - image: muryanto1/centos_for_esgf_installer_root:latest
-      working_directory: /home/docker/workspace
-      environment:
-         WORKDIR: "/home/docker/workspace"
+      working_directory: workspace
       steps:
          - checkout
          - run: *create_esgf_pub_env
