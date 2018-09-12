@@ -18,8 +18,9 @@ aliases:
         type python
         pwd
         ls
+        ls tests
         # python tests/test_esg_apache.py
-        python tests/test_pybash.py
+        python ./tests/test_pybash.py
         source /usr/local/conda/bin/deactivate
 
 jobs:
