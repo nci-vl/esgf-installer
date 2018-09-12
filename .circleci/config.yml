@@ -13,6 +13,7 @@ aliases:
      command: |
         id
         pwd
+        ls
         source /usr/local/conda/bin/activate esgf-pub
         type python
         # python tests/test_esg_apache.py
